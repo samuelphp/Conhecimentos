@@ -1,0 +1,78 @@
+<!Doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/default/default.css">
+	<head>
+	<body>
+	<div class="container-fluid pt-2">
+		<div class="flex-column">
+			<div class="d-flex">
+				<div class="">
+					<div class="col bg-dark">
+						<div class="col">
+							<div class=" p-2">
+								<div class="pt-2">
+									<input type="text" id="visor" value="">
+								</div>
+								<br>
+								<button  onclick="calcular('acao','c')" class="btn-dark btn-lg" value="c">C</button>
+							</div>
+							<div class=" p-2">
+								<button onclick="calcular('valor',1)" class="btn-dark btn-lg">1</button>
+								<button onclick="calcular('valor',2)"class="btn-dark btn-lg">2</button>
+								<button onclick="calcular('valor',3)" class="btn-dark btn-lg">3</button>
+								<button onclick="calcular('acao','/')" class="btn-dark btn-lg">/</button>
+							</div>
+							<div class=" p-2">
+								<button onclick="calcular('valor',4)" class="btn-dark btn-lg">4</button>
+								<button onclick="calcular('valor',5)" class="btn-dark btn-lg">5</button>
+								<button onclick="calcular('valor',6)"  class="btn-dark btn-lg">6</button>
+								<button onclick="calcular('acao','*')" class="btn-dark btn-lg">X</button>
+							</div>
+							<div class=" p-2">
+								<button onclick="calcular('valor',7)" class="btn-dark btn-lg">7</button>
+								<button  onclick="calcular('valor',8)" class="btn-dark btn-lg">8</button>
+								<button onclick="calcular('valor',9)" class="btn-dark btn-lg">9</button>
+								<button onclick="calcular('acao','+')" class="btn-dark btn-lg">+</button>
+							</div>
+							<div class=" p-2">
+								<button onclick="calcular('valor',0)" class="btn-dark btn-lg">0</button>
+								<button onclick="calcular('acao','=')" class="btn-dark btn-lg">=</button>
+								<button onclick="calcular('acao','.')" class="btn-dark btn-lg">.</button>
+								<button onclick="calcular('acao','-')" class="btn-dark btn-lg">-</button>
+							</div>	
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		function calcular(tipo, valor){
+			let valor_campo
+			let resultado
+			if(tipo === 'valor') {
+				valor_campo = document.getElementById('visor').value
+				valor_campo = document.getElementById('visor').value += valor
+			}
+			if(tipo === 'acao'){
+				if (valor == 'c'){
+					document.getElementById('visor').value = ''
+				}
+				if(valor === '*' || valor === '/' || valor === '+' || valor === '-' || valor === '.'){
+					valor_campo = document.getElementById('visor').value += valor
+				}
+				if(valor === '=') {
+					valor_campo = document.getElementById('visor').value
+					resultado = eval(valor_campo)
+					document.getElementById('visor').value = resultado
+				}
+			}		   
+		}
+	</script>
+	<script type="text/javascript" src="js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="js/bootstrap/bootstrap.min.js"></script>
+</html>
